@@ -1,15 +1,16 @@
-# 경마 사진출전표 + 공공데이터 + 결과학습 에이전트
+# 경마 PDF출전표 + 공공데이터 + 선명사진 분석
 
 ## 핵심
-이 버전은 출전마 명단도 사진에서 읽습니다. CSV는 필수가 아닙니다.
+- 출전마 명단을 PDF로 업로드합니다.
+- PDF가 스캔이어도 고해상도 이미지로 렌더링해서 읽습니다.
+- 사진/PDF 미리보기를 크게 표시해서 흐릿하게 보이지 않게 했습니다.
 
-## 흐름
-1. 사진에서 출전마 추출
-2. 공공데이터로 말별 과거통계 보강
-3. 현장 사진으로 배당/마체중/전문가표 보정
-4. 최종 배팅안 확인
-5. 결과 기록
-6. 통계 JSON 저장/불러오기
+## Streamlit Secrets
+```toml
+OPENAI_API_KEY = "너의 OpenAI API 키"
+OPENAI_VISION_MODEL = "gpt-4.1-mini"
+DATA_GO_KR_SERVICE_KEY = "너의 공공데이터포털 Decoding 인증키"
+```
 
 ## GitHub 업로드 파일
 - app.py
@@ -17,14 +18,3 @@
 - packages.txt
 - sample_race.csv
 - README.md
-
-## Streamlit Secrets
-아래 3줄만 넣어도 됩니다.
-
-```toml
-OPENAI_API_KEY = "너의 OpenAI API 키"
-OPENAI_VISION_MODEL = "gpt-4.1-mini"
-DATA_GO_KR_SERVICE_KEY = "너의 공공데이터포털 Decoding 인증키"
-```
-
-API URL은 app.py 안에 기본값으로 들어 있습니다.
